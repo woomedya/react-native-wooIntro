@@ -1,0 +1,27 @@
+{
+  "name": "react-native-woointro",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/woomedya/react-native-woointro.git"
+  },
+  "author": "woomedya",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/woomedya/react-native-woointro/issues"
+  },
+  "homepage": "https://github.com/woomedya/react-native-woointro#readme",
+  "dependencies": {
+    "@react-native-community/async-storage": "^1.8.1",
+    "axios": "^0.19.2",
+    "judel": "^1.0.2",
+    "react-native-elements": "^1.2.7",
+    "react-native-iphone-x-helper": "^1.2.1",
+    "woo-crypto": "^1.0.1"
+  }
+}
