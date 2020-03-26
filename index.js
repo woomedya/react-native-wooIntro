@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { View, } from "react-native";
 import opts from './config';
 import i18n from './libs/locales';
-import * as introApi from "./libs/api"
+import * as introApi from "./libs/api";
 import Intro from './libs/Intro';
 import * as wooIntroRepo from './libs/repostories/wooIntro';
 

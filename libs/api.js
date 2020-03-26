@@ -2,7 +2,6 @@ import opts from '../config';
 import { getNameByLang } from 'woo-utilities/language';
 import Crypto from 'woo-crypto';
 import { getUTCTime } from 'woo-utilities/date';
-import opts from '../config';
 import { post } from 'woo-utilities/request';
 
 var cache = null;
