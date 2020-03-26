@@ -8,5 +8,5 @@ export default opts = {
     locales: {},
     onChange: null,
     primaryColor: "#f3f3f3",
-    introKey: "Intro1",
+    introKey: "Intro",
 };

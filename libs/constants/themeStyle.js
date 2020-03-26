@@ -1,5 +1,5 @@
 
-import { RFPercentage } from './font';
+import { RFPercentage } from 'woo-utilities/font';
 
 /**
  * Uygulama içinde kullanılan metin boyutlarıdır.
