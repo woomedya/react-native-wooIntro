@@ -36,7 +36,7 @@ export const getIntroImages = async (lang) => {
     return introImages;
 }
 
-export default class BilllingComponent extends Component {
+export default class WooIntro extends Component {
     constructor(props) {
         super(props)
         this.props = props;
