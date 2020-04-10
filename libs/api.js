@@ -24,7 +24,7 @@ export const getIntoImageItems = async (lang) => {
                     introKey: opts.introKey
                 });
 
-                responseJson = resault.data || [];
+                responseJson = resault.data.data || [];
             } catch (error) {
                 responseJson = [];
             }
