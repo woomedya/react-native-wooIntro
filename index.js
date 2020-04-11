@@ -31,8 +31,8 @@ export const getIntroStatus = async () => {
     return startup;
 }
 
-export const getIntroImages = async (lang) => {
-    var introImages = await introApi.getIntoImageItems(lang);
+export const getIntroImages = async () => {
+    var introImages = await introApi.getIntoImageItems(opts.lang);
     return introImages;
 }
 
@@ -53,11 +53,13 @@ export default class WooIntro extends Component {
 
     controlIntro = async () => {
         var introImages = await introApi.getIntoImageItems(this.state.lang);
-        this.setState({ introImages });
-        if (!this.state.introImages.length)
-            this.goBack()
-        else
-            await wooIntroRepo.setIntro();
+        this.setState({ introImages }, () => {
+            if (!this.state.introImages.length)
+                this.goBack()
+            else
+                await wooIntroRepo.setIntro();
+        });
+
     };
 
     goBack = () => {
@@ -71,7 +73,9 @@ export default class WooIntro extends Component {
                     flex: 1
                 }}
             >
-                <Intro introSkip={this.goBack} primaryColor={opts.primaryColor} introImages={this.state.introImages} />
+                {this.state.introImages.length ?
+                    <Intro introSkip={this.goBack} primaryColor={opts.primaryColor} introImages={this.state.introImages} />
+                    : null}
             </View>
         );
     }
