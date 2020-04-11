@@ -84,16 +84,18 @@ export default class Intro extends Component {
 	}
 }
 
+
 const isIphoneX =
 	Platform.OS === 'ios' && !Platform.isPad && !Platform.isTVOS && (height === 812 || width === 812);
-var imageHeight = height - 200 + (isIphoneX ? -50 : 0);
+var imageHeight = height * 0.72 + (isIphoneX ? -50 : 0);
 
 const styles = StyleSheet.create({
 	mainContent: {
 		flex: 1,
 		alignItems: "center",
+		justifyContent: "space-between",
+		paddingBottom: imageHeight * 0.15,
 		paddingTop: 10,
-		paddingBottom: 40,
 	},
 	image: {
 		width: imageHeight * 9 / 16 + 0.6,
