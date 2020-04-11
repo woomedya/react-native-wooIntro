@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, View, ActivityIndicator, SafeAreaView, Dimensions, Platform } from 'react-native';
-import { color, font } from '../utilities/themeStyle';
+import { color, font } from '../constants/themeStyle';
 import AppIntroSlider from './AppIntroSlider';
 import { Image } from 'react-native-elements';
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons';

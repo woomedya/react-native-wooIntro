@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { View, } from "react-native";
 import opts from './config';
 import i18n from './libs/locales';
-import { intro } from "./libs/introApi"
+import * as introApi from "./libs/api";
 import Intro from './libs/Intro';
 import * as wooIntroRepo from './libs/repostories/wooIntro';
 
@@ -32,11 +32,11 @@ export const getIntroStatus = async () => {
 }
 
 export const getIntroImages = async (lang) => {
-    var introImages = await intro(lang);
+    var introImages = await introApi.getIntoImageItems(lang);
     return introImages;
 }
 
-export default class BilllingComponent extends Component {
+export default class WooIntro extends Component {
     constructor(props) {
         super(props)
         this.props = props;
@@ -52,7 +52,7 @@ export default class BilllingComponent extends Component {
     }
 
     controlIntro = async () => {
-        var introImages = await intro(this.state.lang);
+        var introImages = await introApi.getIntoImageItems(this.state.lang);
         this.setState({ introImages });
         if (!this.state.introImages.length)
             this.goBack()

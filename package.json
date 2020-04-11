@@ -1,6 +1,6 @@
 {
   "name": "react-native-woointro",
-  "version": "1.0.1",
+  "version": "1.0.4",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -22,6 +22,7 @@
     "judel": "^1.0.2",
     "react-native-elements": "^1.2.7",
     "react-native-iphone-x-helper": "^1.2.1",
-    "woo-crypto": "^1.0.1"
+    "woo-crypto": "^1.0.1",
+    "woo-utilities": "^1.0.9"
   }
 }
