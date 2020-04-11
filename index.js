@@ -53,7 +53,7 @@ export default class WooIntro extends Component {
 
     controlIntro = async () => {
         var introImages = await introApi.getIntoImageItems(this.state.lang);
-        this.setState({ introImages }, () => {
+        this.setState({ introImages }, async () => {
             if (!this.state.introImages.length)
                 this.goBack()
             else
