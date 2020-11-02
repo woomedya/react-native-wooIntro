@@ -9,4 +9,6 @@ export default opts = {
     onChange: null,
     primaryColor: "#f3f3f3",
     introKey: "Intro",
+    appNavigator: null,
+    introRouteName: "Intro"
 };

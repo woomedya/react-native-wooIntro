@@ -2,6 +2,7 @@ import settingsModel from './models/wooIntro';
 import opts from '../../config';
 
 var defaultSettings = {
+    startup: true
 };
 
 var cacheValue = null;
@@ -38,3 +39,11 @@ export const setIntro = async () => {
     await set(opts.introKey, true);
 }
 
+export const getStartup = async () => {
+    var value = await get();
+    return value.startup;
+}
+
+export const setStartup = async () => {
+    await set("startup", false);
+}
