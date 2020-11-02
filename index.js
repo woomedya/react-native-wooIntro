@@ -44,7 +44,6 @@ export default class WooIntro extends Component {
         super(props)
         this.props = props;
         this.state = {
-            textBilling: i18n().textBilling,
             introImages: [],
             lang: opts.lang
         }
