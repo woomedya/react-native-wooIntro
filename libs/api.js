@@ -4,7 +4,7 @@ import Crypto from 'woo-crypto';
 import { getUTCTime } from 'woo-utilities/date';
 import { post } from 'woo-utilities/request';
 
-var cache = null;
+var cache = {};
 
 const url = {
     items: '/woointro/items'
@@ -13,7 +13,7 @@ const url = {
 export const getIntoImageItems = async (lang) => {
     try {
         var responseJson = [];
-        if (cache == null) {
+        if (cache[lang] == null) {
             try {
                 var type = 'woointro.items';
                 var token = (Crypto.encrypt(JSON.stringify({ expire: getUTCTime(opts.timeout).toString(), type }), opts.publicKey, opts.privateKey));
@@ -36,9 +36,9 @@ export const getIntoImageItems = async (lang) => {
                 Index: item.content.index
             })).sort((a, b) => (a.Index > b.Index) ? 1 : -1);
 
-            cache = responseJson;
+            cache[lang] = responseJson;
         } else {
-            responseJson = cache;
+            responseJson = cache[lang];
         }
         return responseJson;
     } catch (error) {

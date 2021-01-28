@@ -48,8 +48,7 @@ export default class WooIntro extends Component {
         super(props)
         this.props = props;
         this.state = {
-            introImages: [],
-            lang: langStore.getLanguage()
+            introImages: []
         }
     }
 
@@ -64,13 +63,11 @@ export default class WooIntro extends Component {
     }
 
     langChanged = () => {
-        this.setState({
-            lang: langStore.getLanguage()
-        });
+        this.controlIntro();
     }
 
     controlIntro = async () => {
-        var introImages = await introApi.getIntoImageItems(this.state.lang);
+        var introImages = await introApi.getIntoImageItems(langStore.getLanguage());
         this.setState({ introImages }, async () => {
             if (!this.state.introImages.length)
                 this.goBack()
@@ -86,11 +83,7 @@ export default class WooIntro extends Component {
 
     render() {
         return (
-            <View
-                style={{
-                    flex: 1
-                }}
-            >
+            <View style={{ flex: 1 }}>
                 {this.state.introImages.length ?
                     <Intro introSkip={this.goBack} primaryColor={opts.primaryColor} introImages={this.state.introImages} />
                     : null}
