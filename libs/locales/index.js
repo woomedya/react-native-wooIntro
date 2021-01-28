@@ -2,9 +2,10 @@
 import tr from './tr';
 import en from './en';
 import opts from '../../config';
+import * as langStore from '../store/language';
 
 export default () => {
-  var lang = opts.lang;
+  var lang = langStore.getLanguage();
 
   if (opts.locales[lang])
     return locales[lang];

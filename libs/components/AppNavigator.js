@@ -3,6 +3,7 @@ import { NavigationActions } from 'react-navigation';
 import opts from '../../config';
 import * as wooIntroRepo from '../repostories/wooIntro';
 import * as introApi from "../api";
+import * as langStore from '../store/language';
 
 export default class App extends React.Component {
     constructor(props) {
@@ -14,7 +15,7 @@ export default class App extends React.Component {
     }
 
     getIntroImages = async () => {
-        return await introApi.getIntoImageItems(opts.lang);
+        return await introApi.getIntoImageItems(langStore.getLanguage());
     }
 
     getIntroStatus = async () => {
