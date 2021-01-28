@@ -53,8 +53,20 @@ export default class WooIntro extends Component {
         }
     }
 
-    async componentDidMount() {
+    componentDidMount() {
         this.controlIntro();
+
+        langStore.default.addListener(langStore.LANG, this.langChanged);
+    }
+
+    componentWillUnmount() {
+        langStore.default.removeListener(langStore.LANG, this.langChanged);
+    }
+
+    langChanged = () => {
+        this.setState({
+            lang: langStore.getLanguage()
+        });
     }
 
     controlIntro = async () => {
