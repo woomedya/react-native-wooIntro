@@ -1,11 +1,10 @@
 import React from 'react';
-import { NavigationActions } from 'react-navigation';
 import opts from '../../config';
 import * as wooIntroRepo from '../repostories/wooIntro';
 import * as introApi from "../api";
 import * as langStore from '../store/language';
 
-export default class App extends React.Component {
+export default class IntroNavigator extends React.Component {
     constructor(props) {
         super(props)
     }
@@ -25,7 +24,7 @@ export default class App extends React.Component {
     startupConfig = async () => {
         var startup = await wooIntroRepo.getStartup();
 
-        if (startup && this.navigator) {
+        if (startup) {
             setTimeout(async () => {
                 var introStatus = await this.getIntroStatus();
 
@@ -34,11 +33,7 @@ export default class App extends React.Component {
 
                     if (introImages.length > 0) {
                         await wooIntroRepo.setStartup();
-                        this.navigator.dispatch(
-                            NavigationActions.navigate({
-                                routeName: opts.introRouteName
-                            })
-                        );
+                        this.props.navigate(opts.introRouteName);
                     }
                 }
             }, 100);
@@ -46,6 +41,6 @@ export default class App extends React.Component {
     }
 
     render() {
-        return opts.appNavigator ? <opts.appNavigator ref={nav => this.navigator = nav} /> : null
+        return null;
     }
 }

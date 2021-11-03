@@ -5,12 +5,12 @@ import i18n from './libs/locales';
 import * as introApi from "./libs/api";
 import Intro from './libs/Intro';
 import * as wooIntroRepo from './libs/repostories/wooIntro';
-import appNavigator from './libs/components/AppNavigator';
+import CustomAppNavigator from './libs/components/IntroNavigator';
 import * as langStore from './libs/store/language';
 
 export const config = ({
     wooServerUrl, publicKey, privateKey, applicationId, tokenTimeout, lang,
-    onChange, primaryColor, locales, introKey, appNavigator, introRouteName
+    onChange, primaryColor, locales, introKey, introRouteName
 }) => {
     opts.wooServerUrl = wooServerUrl;
     opts.privateKey = privateKey;
@@ -22,7 +22,6 @@ export const config = ({
     opts.primaryColor = primaryColor || opts.primaryColor;
     opts.locales = locales || opts.locales;
     opts.introKey = introKey || opts.introKey;
-    opts.appNavigator = appNavigator;
     opts.introRouteName = introRouteName;
 
     langStore.setLanguage(lang);
@@ -41,7 +40,7 @@ export const getIntroImages = async () => {
     return await introApi.getIntoImageItems(langStore.getLanguage());
 }
 
-export const AppNavigator = appNavigator;
+export const IntroNavigator = CustomAppNavigator;
 
 export default class WooIntro extends Component {
     constructor(props) {
