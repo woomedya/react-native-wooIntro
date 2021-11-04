@@ -5,7 +5,7 @@ import {
   View,
   Dimensions,
   Text,
-  TouchableOpacity,
+  TouchableWithoutFeedback,
   Platform,
   I18nManager,
 } from 'react-native';
@@ -81,8 +81,8 @@ export default class AppIntroSlider extends React.Component {
         {this.props.renderItem ? (
           this.props.renderItem(props)
         ) : (
-            <DefaultSlide bottomButton={this.props.bottomButton} {...props} />
-          )}
+          <DefaultSlide bottomButton={this.props.bottomButton} {...props} />
+        )}
       </View>
     );
   };
@@ -124,12 +124,12 @@ export default class AppIntroSlider extends React.Component {
       name === 'Skip' || name === 'Prev' ? styles.leftButtonContainer : styles.rightButtonContainer;
     return (
       <View style={!this.props.bottomButton && style}>
-        <TouchableOpacity
+        <TouchableWithoutFeedback
           onPress={onPress}
           style={this.props.bottomButton ? styles.flexOne : this.props.buttonStyle}
         >
           {content}
-        </TouchableOpacity>
+        </TouchableWithoutFeedback>
       </View>
     );
   };
@@ -159,7 +159,7 @@ export default class AppIntroSlider extends React.Component {
         <View style={styles.paginationDots}>
           {this.props.slides.length > 1 &&
             this.props.slides.map((x, i) => (
-              <TouchableOpacity
+              <TouchableWithoutFeedback
                 key={x + i}
                 style={[
                   styles.dot,
